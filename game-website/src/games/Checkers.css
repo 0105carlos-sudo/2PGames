@@ -1,0 +1,27 @@
+.ck-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 0;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--line);
+  width: min(440px, 92vw); aspect-ratio: 1;
+  box-shadow: var(--shadow);
+}
+.ck-sq {
+  border: none; aspect-ratio: 1; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: inherit;
+}
+.ck-sq.light { background: #ecdcb9; }
+.ck-sq.dark { background: #a5714f; cursor: pointer; }
+.ck-sq.sel { outline: 3px solid var(--accent); outline-offset: -3px; }
+.ck-sq.tgt { outline: 3px solid #1a7f4b; outline-offset: -3px; cursor: pointer; }
+.ck-pc {
+  width: 78%; height: 78%; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; color: rgba(255,255,255,0.9);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.35), inset 0 2px 3px rgba(255,255,255,0.35);
+  animation: symbolPop 0.25s ease;
+}
+.ck-pc.p1 { background: radial-gradient(circle at 35% 30%, #4a4a4e, #101013); border: 2px solid #000; }
+.ck-pc.p2 { background: radial-gradient(circle at 35% 30%, #fff, #c9c9d1); border: 2px solid #8a8a92; color: #c9a227; }

@@ -1,0 +1,14 @@
+.sn-wrap { position: relative; width: min(400px, 92vw); margin: 1rem auto; }
+.sn-canvas {
+  width: 100%; height: auto; display: block;
+  border-radius: 18px; border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.sn-pad { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; margin-top: 0.8rem; }
+.sn-pad > div { display: flex; gap: 2.4rem; }
+.sn-pad button {
+  width: 56px; height: 56px; border-radius: 16px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text);
+  cursor: pointer; display: grid; place-items: center;
+}
+.sn-pad button:active { background: var(--accent-soft); }

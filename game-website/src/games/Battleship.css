@@ -1,0 +1,25 @@
+.bs-wrap {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 1rem 0;
+}
+.bs-panel h3 { text-align: center; color: var(--text); font-size: 0.95rem; margin-bottom: 0.6rem; }
+.bs-board {
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px;
+  background: var(--inset); padding: 10px; border-radius: 16px;
+  border: 1px solid var(--line); width: min(300px, 44vw); aspect-ratio: 1;
+}
+.bs-cell {
+  border-radius: 7px; border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; aspect-ratio: 1; font-family: inherit;
+}
+button.bs-cell { cursor: pointer; background: #164e7c; transition: var(--transition); }
+button.bs-cell:not(:disabled):hover { border-color: var(--accent); transform: scale(1.06); }
+.bs-cell.fog { background: #164e7c; }
+.bs-cell.sea { background: #164e7c; }
+.bs-cell.ship { background: #2e6f4e; }
+.bs-cell.hit { background: #c0392b; border-color: #c0392b; }
+.bs-cell.miss { background: #0c2f4a; color: rgba(255,255,255,0.5); }
+.bs-board.lock .bs-cell { background: #164e7c; }
+.bs-board.lock .bs-cell.ship { background: #2e6f4e; }
+.bs-board.lock .bs-cell.hit { background: #c0392b; }
+.bs-board.lock .bs-cell.miss { background: #0c2f4a; color: rgba(255,255,255,0.5); }

@@ -1,0 +1,80 @@
+.mm-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 520px;
+}
+
+.mm-card {
+  aspect-ratio: 1;
+  min-width: 0;
+  border-radius: 15px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--tile-hi), var(--tile-lo));
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-shadow: 0 1px 0 var(--hl) inset, 0 3px 10px rgba(0, 0, 0, 0.1);
+  color: var(--ink);
+}
+
+.mm-card:not(:disabled):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+  border-color: var(--accent);
+}
+
+.mm-card:disabled {
+  cursor: default;
+}
+
+.mm-card.up {
+  background: var(--surface-solid);
+  border-color: var(--line-strong);
+  animation: cardFlip 0.28s ease;
+}
+
+@keyframes cardFlip {
+  from { transform: rotateY(90deg) scale(0.92); }
+  to { transform: rotateY(0) scale(1); }
+}
+
+.mm-card.done {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft), 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.mm-face {
+  display: inline-flex;
+  line-height: 1;
+  user-select: none;
+}
+
+.mm-face svg {
+  display: block;
+}
+
+/* face-down tile: frosted dot pattern, no text, no emoji */
+.mm-back {
+  width: 44%;
+  height: 44%;
+  border-radius: 50%;
+  background-image: radial-gradient(var(--faint) 1.6px, transparent 1.7px);
+  background-size: 11px 11px;
+  background-position: center;
+  opacity: 0.85;
+}
+
+@media (max-width: 560px) {
+  .mm-board {
+    gap: 8px;
+  }
+  .mm-face svg {
+    width: 28px;
+    height: 28px;
+  }
+}

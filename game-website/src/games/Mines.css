@@ -1,0 +1,32 @@
+.mn-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+  background: var(--inset);
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  width: min(420px, 92vw);
+  aspect-ratio: 1;
+}
+.mn-cell {
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface-solid);
+  color: var(--text);
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: var(--transition);
+  aspect-ratio: 1;
+  font-family: inherit;
+}
+.mn-cell:not(:disabled):hover { border-color: var(--accent); transform: scale(1.05); }
+.mn-cell.open { background: var(--surface); cursor: default; }
+.mn-cell.boom { background: #c0392b; border-color: #c0392b; }
+.mn-cell.n1 { color: #2471a3; } .mn-cell.n2 { color: #1e8449; }
+.mn-cell.n3 { color: #c0392b; } .mn-cell.n4 { color: #6c3483; }
+.mn-cell.n5 { color: #b7950b; } .mn-cell.n6 { color: #17a589; }
+.mn-cell.n7 { color: #555; } .mn-cell.n8 { color: #000; }
+.mn-note { text-align: center; color: var(--muted); font-size: 0.88rem; font-weight: 600; margin-top: 0.2rem; }

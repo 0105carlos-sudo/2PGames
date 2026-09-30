@@ -1,0 +1,26 @@
+.lo-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+  background: var(--inset);
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  width: min(380px, 90vw);
+  aspect-ratio: 1;
+}
+.lo-cell {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #2b2b30;
+  cursor: pointer;
+  aspect-ratio: 1;
+  transition: all 0.18s ease;
+}
+.lo-cell:not(:disabled):hover { transform: scale(1.05); }
+.lo-cell.on {
+  background: radial-gradient(circle at 50% 40%, #ffe98a, #f5b301);
+  border-color: #f5b301;
+  box-shadow: 0 0 18px rgba(245, 179, 1, 0.55);
+}
+.lo-cell:disabled { cursor: default; }

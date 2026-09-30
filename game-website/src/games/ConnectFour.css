@@ -1,0 +1,192 @@
+.board-container {
+  display: flex;
+  justify-content: center;
+  margin: 1.4rem 0;
+}
+
+.connect-four-board {
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 14px;
+  width: 100%;
+  max-width: 520px;
+  box-shadow: 0 1px 0 var(--hl) inset, var(--shadow);
+}
+
+.disc-indicator {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.disc-indicator.player1 {
+  background: var(--p1);
+}
+
+.disc-indicator.player2 {
+  background: var(--p2);
+  border: 2px solid var(--p2-line);
+}
+
+.column-hover {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.hover-target {
+  flex: 1;
+  height: 40px;
+  position: relative;
+  border-radius: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.hover-target:hover {
+  background: var(--inset);
+}
+
+.preview-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: previewSoft 1.4s ease-in-out infinite;
+}
+
+.preview-disc.player1 {
+  background: var(--p1);
+  opacity: 0.85;
+}
+
+.preview-disc.player2 {
+  background: var(--p2);
+  border: 2px solid var(--p2-line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
+}
+
+@keyframes previewSoft {
+  0%, 100% { transform: scale(0.88); opacity: 0.6; }
+  50% { transform: scale(1); opacity: 0.95; }
+}
+
+.board-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--inset);
+  border-radius: 16px;
+  padding: 10px;
+  border: 1px solid var(--line);
+}
+
+.board-row {
+  display: flex;
+  gap: 8px;
+}
+
+.c4-cell {
+  flex: 1;
+  aspect-ratio: 1;
+  min-width: 0;
+  background: var(--well);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .c4-cell {
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.c4-cell:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.c4-cell .disc {
+  display: block;
+  width: 86%;
+  height: 86%;
+  border-radius: 50%;
+  transform: scale(0);
+}
+
+.c4-cell.player1 .disc {
+  background: radial-gradient(circle at 32% 30%, var(--tile-hi), var(--p1) 72%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.25);
+  animation: discDrop 0.32s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+.c4-cell.player2 .disc {
+  background: radial-gradient(circle at 32% 30%, #ffffff, var(--p2) 78%);
+  border: 2px solid var(--p2-line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.22), inset 0 1px 0 var(--hl);
+  animation: discDrop 0.32s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+}
+
+.c4-cell.winning .disc {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  animation: winSoft 1.1s ease-in-out infinite;
+}
+
+@keyframes discDrop {
+  0% { transform: scale(0) translateY(-200%); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1) translateY(0); }
+}
+
+@keyframes winSoft {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.18); }
+}
+
+.c4-cell.animating .disc {
+  animation: discFall 0.3s ease forwards;
+}
+
+@keyframes discFall {
+  0% { transform: translateY(-400%) scale(0.85); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.game-controls {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .connect-four-board {
+    padding: 10px;
+    border-radius: 16px;
+  }
+
+  .column-hover {
+    gap: 6px;
+  }
+
+  .hover-target {
+    height: 30px;
+  }
+
+  .board-row {
+    gap: 6px;
+  }
+}

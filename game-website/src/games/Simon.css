@@ -1,0 +1,15 @@
+.sm-pads {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem;
+  max-width: 380px; margin: 1.2rem auto;
+}
+.sm-pad {
+  aspect-ratio: 1.4; border-radius: 22px; border: none; cursor: pointer;
+  background: color-mix(in srgb, var(--pad) 45%, #888 0%);
+  background: var(--pad);
+  opacity: 0.38;
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+}
+.sm-pad:not(:disabled):hover { transform: scale(1.03); }
+.sm-pad.lit { opacity: 1; box-shadow: 0 0 32px var(--pad); transform: scale(1.04); }
+.sm-pad:disabled { cursor: default; }

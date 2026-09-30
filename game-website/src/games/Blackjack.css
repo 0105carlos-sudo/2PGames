@@ -1,0 +1,34 @@
+.bj-table {
+  display: flex; flex-direction: column; gap: 0.9rem;
+  max-width: 560px; margin: 1.2rem auto;
+}
+.bj-hand {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 18px; padding: 1rem 1.2rem; color: var(--text);
+  transition: var(--transition);
+}
+.bj-hand.live { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.bj-hand.dealer { background: var(--inset); }
+.bj-hand-head { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; margin-bottom: 0.7rem; }
+.bj-hand-head strong {
+  margin-left: auto; font-size: 1.3rem; font-variant-numeric: tabular-nums;
+  background: var(--surface-solid); border: 1px solid var(--line);
+  min-width: 52px; text-align: center; border-radius: 10px; padding: 0.1rem 0.5rem;
+}
+.bj-hand-head strong.bust { color: #c0392b; }
+.bj-hand-head strong.bj { color: #1a7f4b; }
+.bj-hand-head em { font-style: normal; font-size: 0.72rem; letter-spacing: 0.1em; color: var(--muted); border: 1px solid var(--line); padding: 0.15rem 0.5rem; border-radius: 999px; }
+.bj-cards { display: flex; gap: 0.55rem; flex-wrap: wrap; }
+.bj-card {
+  width: 62px; height: 86px; border-radius: 12px;
+  background: var(--surface-solid); border: 1px solid var(--line-strong);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 1.05rem; box-shadow: var(--shadow);
+  animation: symbolPop 0.25s ease;
+}
+.bj-card b { font-size: 1.25rem; line-height: 1; }
+.bj-card i { font-style: normal; font-size: 1.3rem; line-height: 1; }
+.bj-card.red { color: #c0392b; }
+.bj-card.back { font-size: 1.8rem; background: repeating-linear-gradient(45deg, var(--inset), var(--inset) 6px, var(--line) 6px, var(--line) 7px); }
+.bj-actions { display: flex; gap: 0.8rem; justify-content: center; margin-top: 0.4rem; }
+.bj-actions .btn { min-width: 140px; }

@@ -1,0 +1,19 @@
+.nim-piles { display: flex; gap: 0.8rem; justify-content: center; flex-wrap: wrap; margin: 1.2rem 0; }
+.nim-pile {
+  flex: 1; min-width: 130px; max-width: 190px;
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 18px;
+  padding: 1rem; cursor: pointer; color: var(--text); font-family: inherit;
+  display: flex; flex-direction: column; gap: 0.6rem; align-items: center;
+  transition: var(--transition);
+}
+.nim-pile.on { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.nim-pile:disabled { cursor: default; opacity: 0.55; }
+.nim-name { font-weight: 700; font-size: 0.85rem; color: var(--muted); }
+.nim-stones { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; min-height: 26px; }
+.nim-stone { width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #6b6b70, #1c1c1f); box-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+.nim-stones em { color: var(--faint); font-style: normal; }
+.nim-count { font-size: 1.6rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.nim-take {
+  display: flex; align-items: center; gap: 0.9rem; justify-content: center;
+  flex-wrap: wrap; color: var(--text); font-weight: 700; margin-bottom: 0.4rem;
+}

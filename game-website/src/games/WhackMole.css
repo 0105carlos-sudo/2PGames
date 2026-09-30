@@ -1,0 +1,31 @@
+.mole-duelbar {
+  display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 0.6rem;
+}
+.mole-duelbar span {
+  padding: 0.45rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+  background: var(--surface); border: 1px solid var(--line); color: var(--muted);
+}
+.mole-duelbar span.live { color: var(--text); border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.mole-board {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem;
+  max-width: 420px; margin: 1rem auto;
+}
+.mole-hole {
+  aspect-ratio: 1; border-radius: 18px; border: 1px solid var(--line);
+  background: var(--surface); cursor: pointer; position: relative; overflow: hidden;
+  transition: var(--transition); font-size: 2.4rem;
+}
+.mole-hole:disabled { cursor: default; }
+.mole-hole.up { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.mole-dirt {
+  position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+  width: 70%; height: 22px; border-radius: 50%; background: var(--inset);
+  border: 1px solid var(--line);
+}
+.mole-face {
+  position: absolute; inset: 0; display: grid; place-items: center; padding-bottom: 12px;
+  animation: moleUp 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes moleUp { from { transform: translateY(60%); } to { transform: translateY(0); } }
+.mole-bar { height: 8px; border-radius: 999px; background: var(--inset); overflow: hidden; max-width: 420px; margin: 0 auto; }
+.mole-time { height: 100%; background: var(--accent); border-radius: 999px; transition: width 0.1s linear; }

@@ -1,0 +1,27 @@
+.mm-box {
+  max-width: 480px; margin: 1rem auto; background: var(--surface);
+  border: 1px solid var(--line); border-radius: 20px; padding: 1.2rem;
+  display: flex; flex-direction: column; gap: 0.9rem; align-items: center; color: var(--text);
+}
+.mm-slots { display: flex; gap: 0.6rem; }
+.mm-dot {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 2px dashed var(--line-strong); background: var(--inset);
+  display: inline-block;
+}
+.mm-dot.sm { width: 30px; height: 30px; }
+.mm-palette { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; }
+.mm-pal {
+  width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.15);
+  cursor: pointer; transition: var(--transition);
+}
+.mm-pal:hover { transform: scale(1.12); }
+.mm-rows { display: flex; flex-direction: column; gap: 0.4rem; width: 100%; }
+.mm-row {
+  display: flex; align-items: center; gap: 0.45rem;
+  background: var(--inset); border-radius: 12px; padding: 0.4rem 0.7rem;
+}
+.mm-row.live { outline: 2px solid var(--accent); }
+.mm-n { font-weight: 800; color: var(--muted); width: 20px; font-size: 0.85rem; }
+.mm-fb { margin-left: auto; font-weight: 800; font-size: 0.9rem; white-space: nowrap; }
+.mm-answer { display: flex; align-items: center; gap: 0.4rem; font-weight: 700; }

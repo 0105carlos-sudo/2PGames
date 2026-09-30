@@ -1,0 +1,121 @@
+.gomoku-board {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  max-width: 560px;
+  background: #d9a94a;
+  background: linear-gradient(135deg, #e3b95c, #d19f3e);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), inset 0 0 0 2px rgba(120, 72, 0, 0.35);
+}
+
+.g-cell {
+  aspect-ratio: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.g-cell::before,
+.g-cell::after {
+  content: '';
+  position: absolute;
+  background: rgba(90, 55, 0, 0.55);
+  pointer-events: none;
+}
+
+.g-cell::before {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+}
+
+.g-cell::after {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+}
+
+.g-cell:not(:disabled):hover::before,
+.g-cell:not(:disabled):hover::after {
+  background: var(--accent);
+}
+
+.g-cell:disabled {
+  cursor: default;
+}
+
+.g-stone {
+  width: 88%;
+  height: 88%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: stonePlace 0.18s ease-out;
+}
+
+@keyframes stonePlace {
+  from { transform: scale(0.4); }
+  to { transform: scale(1); }
+}
+
+.g-stone.black {
+  background: radial-gradient(circle at 32% 30%, #6b6b6b, #1a1a1a 70%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.g-stone.white {
+  background: radial-gradient(circle at 32% 30%, #ffffff, #c4c4cc 75%);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.45), inset 0 0 0 1.5px rgba(0, 0, 0, 0.28);
+}
+
+.g-last {
+  width: 32%;
+  height: 32%;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.g-cell.win .g-stone {
+  outline: 3px solid var(--accent);
+  outline-offset: 1px;
+  animation: winPulse 1s ease infinite;
+}
+
+.stone-dot {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+}
+
+.stone-dot.black {
+  background: radial-gradient(circle at 32% 30%, #6b6b6b, #1a1a1a 70%);
+}
+
+.stone-dot.white {
+  background: radial-gradient(circle at 32% 30%, #ffffff, #c4c4cc 75%);
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 600px) {
+  .gomoku-board {
+    padding: 6px;
+    border-radius: 8px;
+  }
+}
